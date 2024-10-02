@@ -19,5 +19,6 @@ class AppText{
   static const String  kTo= "To";
   static const String  kDate= "Date";
   static const String  kYourTransactionWasSuccessful= "Your transaction was successful";
+  static const String  kKineticSandDinoDigPlayset= "Kinetic Sand Dino Dig Playset";
 
 }
