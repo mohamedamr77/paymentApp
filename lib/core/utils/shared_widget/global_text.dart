@@ -14,11 +14,10 @@ class GText extends StatelessWidget {
   final TextDecoration? textDecoration;
   final Color? decorationColor;
   final double? decorationThickness;
- final String? fontFamily;
+  final String? fontFamily;
   const GText({
-
     super.key,
-     this.color,
+    this.color,
     required this.content,
     required this.fontSize,
     this.textDirection,
@@ -29,7 +28,8 @@ class GText extends StatelessWidget {
     this.overflow,
     this.textDecoration,
     this.decorationColor,
-    this.decorationThickness, this.fontFamily,
+    this.decorationThickness,
+    this.fontFamily,
   });
 
   @override
