@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:paymentapp/core/constant/text_app.dart';
 import 'package:paymentapp/core/extentions/screen_size.dart';
+import 'package:paymentapp/core/navigation/navigation_manager.dart';
 import 'package:paymentapp/core/utils/shared_widget/custom_abb_bar.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_method_list_view.dart';
 
 import '../../../../../core/constant/color_app.dart';
 import '../../../../../core/utils/shared_widget/custom_elevated_btn.dart';
 import '../../../../../core/utils/shared_widget/global_text.dart';
+import '../thank_you_screen.dart';
 import 'custom_credit_card.dart';
 
 class PaymentDetialsBody extends StatefulWidget {
@@ -44,7 +46,9 @@ class _PaymentDetialsBodyState extends State<PaymentDetialsBody> {
                   onPress: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
+                      NavigationManager.push(ThankYouScreen.id);
                     } else {
+                      NavigationManager.push(ThankYouScreen.id);
                       autoValidateMode = AutovalidateMode.always;
                       setState(() {});
                     }
