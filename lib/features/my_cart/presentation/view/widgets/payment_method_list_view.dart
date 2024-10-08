@@ -11,21 +11,26 @@ class PaymentMethodListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return      SizedBox(
         height: 0.07.h,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: index ==0 ? const EdgeInsets.only(left: 10) : index ==paymentMethodList.length-1 ?  const EdgeInsets.only(right: 10) : EdgeInsets.zero,
-              child: PaymentItem(
-                isActive: paymentMethodList[index].isActive,
-                image: paymentMethodList[index].image,
-              ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return 0.05.pw;
-          },
-          itemCount: paymentMethodList.length,
+        child: Center(
+          child: ListView.separated(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Center(
+                child: Padding(
+                  padding: index ==0 ? const EdgeInsets.only(left: 10) : index ==paymentMethodList.length-1 ?  const EdgeInsets.only(right: 10) : EdgeInsets.zero,
+                  child: PaymentItem(
+                    isActive: paymentMethodList[index].isActive,
+                    image: paymentMethodList[index].image,
+                  ),
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return 0.05.pw;
+            },
+            itemCount: paymentMethodList.length,
+          ),
         )
     );
   }
