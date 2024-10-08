@@ -4,9 +4,17 @@ import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_it
 
 import '../../../data/model/payment_mehod_list.dart';
 
-class PaymentMethodListView extends StatelessWidget {
+class PaymentMethodListView extends StatefulWidget {
   const PaymentMethodListView({super.key});
 
+  @override
+  State<PaymentMethodListView> createState() => _PaymentMethodListViewState();
+}
+
+class _PaymentMethodListViewState extends State<PaymentMethodListView> {
+
+
+  int  paymentMethodSelect =0;
   @override
   Widget build(BuildContext context) {
     return      SizedBox(
@@ -19,9 +27,16 @@ class PaymentMethodListView extends StatelessWidget {
               return Center(
                 child: Padding(
                   padding: index ==0 ? const EdgeInsets.only(left: 10) : index ==paymentMethodList.length-1 ?  const EdgeInsets.only(right: 10) : EdgeInsets.zero,
-                  child: PaymentItem(
-                    isActive: paymentMethodList[index].isActive,
-                    image: paymentMethodList[index].image,
+                  child: InkWell(
+                    onTap: (){
+                      setState(() {
+                        paymentMethodSelect = index;
+                      });
+                    },
+                    child: PaymentItem(
+                      isActive: paymentMethodSelect == index,
+                      image: paymentMethodList[index].image,
+                    ),
                   ),
                 ),
               );
