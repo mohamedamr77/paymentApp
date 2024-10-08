@@ -29,7 +29,7 @@ class BasketItems extends StatelessWidget {
         Positioned(
           right: 0.13.w,
           top: 0.2.h,
-          child: Image(image: const AssetImage(AppImage.KdinoshShapes),
+          child: Image(image: const AssetImage(AppImage.kDinoshShapes),
             width: 0.27.w,
             height: 0.2.h,
           ),

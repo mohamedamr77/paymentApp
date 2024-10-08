@@ -6,7 +6,7 @@ class AppImage {
   static const String kColor = "assets/images/color.png";
   static const String kPayApple = "assets/images/payApple.png";
   static const String kPaypal = "assets/images/paypal.svg";
-  static const String KdinoshShapes = "assets/images/dinoshShapes.png";
+  static const String kDinoshShapes = "assets/images/dinoshShapes.png";
   static const String kContainerPointerToItem =
       "assets/images/continerPointerToItem.png";
 }

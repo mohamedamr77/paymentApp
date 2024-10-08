@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../repo/intenet_repo.dart';
 import 'internet_home_state.dart';
 
