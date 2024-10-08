@@ -16,27 +16,33 @@ class PaymentDetialsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   SingleChildScrollView(
-      child: Column(
-        children: [
-          const CustomAppbar(text: AppText.kPaymentDetails),
-          0.02.ph,
-          const PaymentMethodListView(),
-          0.02.ph,
-          const CustomCreditCard(),
-          0.03.ph,
-          CustomElevatedButton(
-              onPress: (){
-            NavigationManager.push(PaymentDetailsScreen.id);
-          },
-              btnColor: AppColor.greenColor,
-              child: GText(
-              content: AppText.kPay,
-              fontSize: 0.05.w
-          )),
-         0.01.ph
-        ],
-      ),
+    return   CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(child: CustomAppbar(text: AppText.kPaymentDetails)),
+        SliverToBoxAdapter(child: 0.02.ph),
+        const SliverToBoxAdapter(child: PaymentMethodListView()),
+        SliverToBoxAdapter(child: 0.02.ph),
+        const SliverToBoxAdapter(child: CustomCreditCard()),
+        SliverToBoxAdapter(child: 0.03.ph),
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 0.05.w),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: CustomElevatedButton(
+                  onPress: (){
+                  },
+                  btnColor: AppColor.greenColor,
+                  child: GText(
+                      content: AppText.kPay,
+                      fontSize: 0.05.w
+                  )),
+            ),
+          ),
+        ),
+
+      ],
     );
   }
 }
