@@ -11,9 +11,16 @@ import '../../../../../core/utils/shared_widget/global_text.dart';
 import '../payment_details_screen.dart';
 import 'custom_credit_card.dart';
 
-class PaymentDetialsBody extends StatelessWidget {
+class PaymentDetialsBody extends StatefulWidget {
   const PaymentDetialsBody({super.key});
 
+  @override
+  State<PaymentDetialsBody> createState() => _PaymentDetialsBodyState();
+}
+
+class _PaymentDetialsBodyState extends State<PaymentDetialsBody> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+   AutovalidateMode autoValidateMode =AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return   CustomScrollView(
@@ -22,7 +29,7 @@ class PaymentDetialsBody extends StatelessWidget {
         SliverToBoxAdapter(child: 0.02.ph),
         const SliverToBoxAdapter(child: PaymentMethodListView()),
         SliverToBoxAdapter(child: 0.02.ph),
-        const SliverToBoxAdapter(child: CustomCreditCard()),
+         SliverToBoxAdapter(child: CustomCreditCard(formKey: formKey, autoValidateMode: autoValidateMode,)),
         SliverToBoxAdapter(child: 0.03.ph),
         SliverFillRemaining(
           hasScrollBody: false,
@@ -32,6 +39,12 @@ class PaymentDetialsBody extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: CustomElevatedButton(
                   onPress: (){
+                    if (formKey.currentState!.validate()){
+                      formKey.currentState!.save();
+                    } else {
+                      autoValidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
                   },
                   btnColor: AppColor.greenColor,
                   child: GText(
