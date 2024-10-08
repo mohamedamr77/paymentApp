@@ -27,7 +27,7 @@ class PaymentDetialsBody extends StatelessWidget {
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 0.05.w),
+            padding:  EdgeInsets.symmetric(horizontal: 0.05.w, vertical: 0.02.h),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: CustomElevatedButton(
@@ -41,7 +41,6 @@ class PaymentDetialsBody extends StatelessWidget {
             ),
           ),
         ),
-
       ],
     );
   }
