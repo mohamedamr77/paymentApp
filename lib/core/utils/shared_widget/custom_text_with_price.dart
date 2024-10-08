@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:paymentapp/core/extentions/screen_size.dart';
 
-import '../../../../../core/utils/shared_widget/global_text.dart';
+import 'global_text.dart';
 
 class CustomTextWithPrice extends StatelessWidget{
   const CustomTextWithPrice({super.key, required this.text, required this.price, this.fontWeightText = FontWeight.w400,  this.fontWeightPrice =FontWeight.w700,  this.fontSizeText,  this.fontSizePrice ,});

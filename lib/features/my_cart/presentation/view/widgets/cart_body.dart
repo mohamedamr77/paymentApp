@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:paymentapp/core/constant/color_app.dart';
 import 'package:paymentapp/core/constant/text_app.dart';
 import 'package:paymentapp/core/extentions/screen_size.dart';
+import 'package:paymentapp/core/navigation/navigation_manager.dart';
 import 'package:paymentapp/core/utils/shared_widget/custom_elevated_btn.dart';
 import 'package:paymentapp/core/utils/shared_widget/global_text.dart';
+import 'package:paymentapp/features/my_cart/presentation/view/payment_details_screen.dart';
 import 'basket_items.dart';
-import 'custom_abb_bar.dart';
-import 'custom_text_with_price.dart';
+import '../../../../../core/utils/shared_widget/custom_abb_bar.dart';
+import '../../../../../core/utils/shared_widget/custom_text_with_price.dart';
 
 class CartBody extends StatelessWidget {
   const CartBody({super.key});
@@ -17,7 +19,7 @@ class CartBody extends StatelessWidget {
       child: Column(
         children: [
           0.017.ph,
-          const CustomAppbar(),
+          const CustomAppbar(text: AppText.kMyCart,),
           0.02.ph,
           const BasketItems(),
           0.015.ph,
@@ -55,7 +57,9 @@ class CartBody extends StatelessWidget {
       
           ),
           0.02.ph,
-          CustomElevatedButton(onPress: (){}, btnColor: AppColor.greenColor, child: GText(
+          CustomElevatedButton(onPress: (){
+            NavigationManager.push(PaymentDetailsScreen.id);
+          }, btnColor: AppColor.greenColor, child: GText(
               content: AppText.kCompletePayment,
               fontSize: 0.05.w
           ))
