@@ -12,12 +12,10 @@ class PaymentMethodListView extends StatefulWidget {
 }
 
 class _PaymentMethodListViewState extends State<PaymentMethodListView> {
-
-
-  int  paymentMethodSelect =0;
+  int paymentMethodSelect = 0;
   @override
   Widget build(BuildContext context) {
-    return      SizedBox(
+    return SizedBox(
         height: 0.07.h,
         child: Center(
           child: ListView.separated(
@@ -26,9 +24,13 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
             itemBuilder: (context, index) {
               return Center(
                 child: Padding(
-                  padding: index ==0 ? const EdgeInsets.only(left: 10) : index ==paymentMethodList.length-1 ?  const EdgeInsets.only(right: 10) : EdgeInsets.zero,
+                  padding: index == 0
+                      ? const EdgeInsets.only(left: 10)
+                      : index == paymentMethodList.length - 1
+                          ? const EdgeInsets.only(right: 10)
+                          : EdgeInsets.zero,
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         paymentMethodSelect = index;
                       });
@@ -46,7 +48,6 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
             },
             itemCount: paymentMethodList.length,
           ),
-        )
-    );
+        ));
   }
 }

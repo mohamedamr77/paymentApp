@@ -5,10 +5,8 @@ import 'package:paymentapp/core/utils/shared_widget/custom_abb_bar.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_method_list_view.dart';
 
 import '../../../../../core/constant/color_app.dart';
-import '../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../core/utils/shared_widget/custom_elevated_btn.dart';
 import '../../../../../core/utils/shared_widget/global_text.dart';
-import '../payment_details_screen.dart';
 import 'custom_credit_card.dart';
 
 class PaymentDetialsBody extends StatefulWidget {
@@ -20,26 +18,31 @@ class PaymentDetialsBody extends StatefulWidget {
 
 class _PaymentDetialsBodyState extends State<PaymentDetialsBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
-   AutovalidateMode autoValidateMode =AutovalidateMode.disabled;
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
-    return   CustomScrollView(
+    return CustomScrollView(
       slivers: [
-        const SliverToBoxAdapter(child: CustomAppbar(text: AppText.kPaymentDetails)),
+        const SliverToBoxAdapter(
+            child: CustomAppbar(text: AppText.kPaymentDetails)),
         SliverToBoxAdapter(child: 0.02.ph),
         const SliverToBoxAdapter(child: PaymentMethodListView()),
         SliverToBoxAdapter(child: 0.02.ph),
-         SliverToBoxAdapter(child: CustomCreditCard(formKey: formKey, autoValidateMode: autoValidateMode,)),
+        SliverToBoxAdapter(
+            child: CustomCreditCard(
+          formKey: formKey,
+          autoValidateMode: autoValidateMode,
+        )),
         SliverToBoxAdapter(child: 0.03.ph),
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 0.05.w, vertical: 0.02.h),
+            padding: EdgeInsets.symmetric(horizontal: 0.05.w, vertical: 0.02.h),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: CustomElevatedButton(
-                  onPress: (){
-                    if (formKey.currentState!.validate()){
+                  onPress: () {
+                    if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                     } else {
                       autoValidateMode = AutovalidateMode.always;
@@ -47,10 +50,7 @@ class _PaymentDetialsBodyState extends State<PaymentDetialsBody> {
                     }
                   },
                   btnColor: AppColor.greenColor,
-                  child: GText(
-                      content: AppText.kPay,
-                      fontSize: 0.05.w
-                  )),
+                  child: GText(content: AppText.kPay, fontSize: 0.05.w)),
             ),
           ),
         ),
