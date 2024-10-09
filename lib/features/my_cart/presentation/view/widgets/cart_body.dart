@@ -6,6 +6,7 @@ import 'package:paymentapp/core/navigation/navigation_manager.dart';
 import 'package:paymentapp/core/utils/shared_widget/custom_elevated_btn.dart';
 import 'package:paymentapp/core/utils/shared_widget/global_text.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/payment_details_screen.dart';
+import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_method_list_view.dart';
 import 'basket_items.dart';
 import '../../../../../core/utils/shared_widget/custom_abb_bar.dart';
 import '../../../../../core/utils/shared_widget/custom_text_with_price.dart';
@@ -54,7 +55,29 @@ class CartBody extends StatelessWidget {
           0.02.ph,
           CustomElevatedButton(
               onPress: () {
-                NavigationManager.push(PaymentDetailsScreen.id);
+                showModalBottomSheet(
+                  backgroundColor: AppColor.whiteColor,
+                  context: context, builder: (context) {
+                  return  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      0.01.ph,
+                      Divider(
+                        thickness: 2,
+                        indent: 0.3.w,
+                        endIndent: 0.3.w,
+                      ),
+                      0.06.ph,
+                      const PaymentMethodListView(),
+                      0.06.ph,
+                      CustomElevatedButton(
+                          onPress: (){},
+                          btnColor: AppColor.greenColor,
+                          child: GText(content: AppText.kPay, fontSize: 0.05.w)),
+                      0.04.ph,
+                    ],
+                  );
+                },);
               },
               btnColor: AppColor.greenColor,
               child: GText(content: AppText.kCompletePayment, fontSize: 0.05.w))
@@ -63,3 +86,4 @@ class CartBody extends StatelessWidget {
     );
   }
 }
+// NavigationManager.push(PaymentDetailsScreen.id);
