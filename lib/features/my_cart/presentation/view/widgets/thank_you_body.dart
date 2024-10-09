@@ -18,26 +18,29 @@ class ThankYouBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           iconBack(),
-          Stack(clipBehavior: Clip.none, children: [
-            Container(
-              margin: EdgeInsets.only(
-                  top: 0.02.h, left: 0.07.w, right: 0.07.w, bottom: 0.04.h),
-              height: 0.8.h,
-              width: 1.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(0.05.w),
-                color: const Color(0xffEDEDED),
+          Transform.translate(
+            offset: const Offset(0, -20),
+            child: Stack(clipBehavior: Clip.none, children: [
+              Container(
+                margin: EdgeInsets.only(
+                    top: 0.02.h, left: 0.07.w, right: 0.07.w, bottom: 0.04.h),
+                height: 0.8.h,
+                width: 1.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(0.05.w),
+                  color: const Color(0xffEDEDED),
+                ),
+                child: const BodyContainerThankYou(),
               ),
-              child: const BodyContainerThankYou(),
-            ),
-            const CustomCheckCircle(),
-            CustomCircleAvatar(
-              positionedCircleAvatarLeft: 0.03.w,
-            ),
-            CustomCircleAvatar(
-              positionedCircleAvatarRight: 0.03.w,
-            ),
-          ]),
+              const CustomCheckCircle(),
+              CustomCircleAvatar(
+                positionedCircleAvatarLeft: 0.03.w,
+              ),
+              CustomCircleAvatar(
+                positionedCircleAvatarRight: 0.03.w,
+              ),
+            ]),
+          ),
         ],
       ),
     );
