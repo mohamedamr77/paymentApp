@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:paymentapp/core/constant/color_app.dart';
 import 'package:paymentapp/core/constant/text_app.dart';
 import 'package:paymentapp/core/extentions/screen_size.dart';
@@ -79,8 +80,52 @@ class ThankYouBody extends StatelessWidget {
                       fontSizeText: 0.05.w,
                       fontSizePrice: 0.05.w,
                     ),
-                    0.02.ph,
+                    0.018.ph,
+                    Container(
+                      width: 0.7.w,
+                      height: 0.08.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(0.05.w),
+                        color: AppColor.whiteColor,
+                      ),
+                      child: Row(
+                        children: [
+                          0.04.pw,
+                          SvgPicture.asset("assets/images/logo.svg"),
+                          0.04.pw,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              0.014.ph,
+                              GText(content: "Credit Card ", fontSize: 0.04.w,fontWeight: FontWeight.w700,),
+                              GText(content: "Mastercard **78", fontSize: 0.03.w,fontWeight: FontWeight.w700, color: Colors.grey,)
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    0.028.ph,
                     dashedLine(),
+                    0.045.ph,
+                   Row(
+                     children: [
+                       0.045.pw,
+                       SvgPicture.asset("assets/images/SVGRepo_iconCarrier.svg",),
+                       Spacer(),
+                       Container(
+                         margin: EdgeInsets.only(right: 0.04.w),
+                         padding: EdgeInsets.symmetric(vertical: 0.015.h,horizontal: 0.06.w),
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(0.02.w),
+                           border: Border.all(
+                             color: Colors.green,
+
+                           )
+                         ),
+                         child: GText(content: "PAID", fontSize: 0.04.w,color: Colors.green, fontWeight: FontWeight.w700,),
+                       )
+                     ],
+                   )
                   ],
                 ),
               ),
