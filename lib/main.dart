@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:paymentapp/core/utils/api_keys.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/cart_screen.dart';
 
 import 'core/constant/const_variables.dart';
@@ -7,6 +8,7 @@ import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 
 void main() {
+   Stripe.publishableKey =ApiKeys.publishablekey;
   runApp(const MyApp());
 }
 
