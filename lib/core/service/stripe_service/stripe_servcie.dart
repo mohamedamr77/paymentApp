@@ -1,3 +1,4 @@
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/core/helper/api_service.dart';
 import 'package:paymentapp/core/utils/api_keys.dart';
 import 'package:paymentapp/features/my_cart/data/model/payment_intenet_model.dart';
@@ -17,4 +18,10 @@ class StripeService{
    return paymentIntentModel;
   }
 
+   Future initPaymentSheet({required String paymentIntentClientSecret })async{
+    Stripe.instance.initPaymentSheet(paymentSheetParameters:  SetupPaymentSheetParameters(
+      paymentIntentClientSecret: paymentIntentClientSecret,
+      merchantDisplayName: "Mohamed amr", // the name of the business
+    ));
+   }
 }
