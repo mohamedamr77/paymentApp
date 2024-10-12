@@ -7,7 +7,7 @@ class PaymentIntentInputModel {
   // Convert the PaymentIntentInputModel to a JSON map
   Map<String, dynamic> toJson() {
     return {
-      'amount': amount,
+      'amount': "${amount}00",
       'currency': currency,
     };
   }
