@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
 }
 
 // 1- paymentIntentObject create paymentIntent ( amount, currency )
+// details step one : need to api request so i use http or dio package
 // 2. init payment sheet ( paymentIntentClientSecret)
 // 3. present paymentSheet ()
 

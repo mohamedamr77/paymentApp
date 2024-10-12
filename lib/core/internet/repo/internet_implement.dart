@@ -11,7 +11,7 @@ class InternetImplement implements InternetRepo {
 
     if (connectivityResult == ConnectivityResult.none) {
       // No internet connection
-      return const Left(ServerFailure(message: 'No Internet connectivity'));
+      return Left(ServerFailure(errorMessage: 'No Internet connectivity'));
     } else if (connectivityResult == ConnectivityResult.wifi) {
       // Connected to WiFi
       return const Right(null); // Return success

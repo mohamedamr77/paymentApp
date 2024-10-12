@@ -12,9 +12,9 @@ class InternetCubit extends Cubit<InternetState> {
     var result = await internetRepo.connectWithInternet();
     result.fold((faliureConnect) {
       if (kDebugMode) {
-        print('Failed: ${faliureConnect.message}');
+        print('Failed: ${faliureConnect.errorMessage}');
       } // Debugging print
-      emit(InternetFaliureState(errorMessage: faliureConnect.message));
+      emit(InternetFaliureState(errorMessage: faliureConnect.errorMessage));
     }, (rightConnect) {
       if (kDebugMode) {
         print('Success: Connected');

@@ -54,6 +54,7 @@ dependencies:
   auto_size_text: ^3.0.0
   flutter_credit_card: ^4.0.1
   flutter_stripe: ^11.2.0
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:
