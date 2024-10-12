@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paymentapp/core/extentions/screen_size.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_item.dart';
 
-import '../../../data/model/payment_mehod_list.dart';
+import '../../../data/model/payment_method_use_in_ui_before_app_payment/payment_mehod_list.dart';
 
 class PaymentMethodListView extends StatefulWidget {
   const PaymentMethodListView({super.key});
