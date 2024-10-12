@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/cart_screen.dart';
 
 import 'core/constant/const_variables.dart';
@@ -33,3 +34,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// 1- paymentIntentObject create paymentIntent ( amount, currency )
+// 2. init payment sheet ( paymentIntentClientSecret)
+// 3. present paymentSheet ()
+
