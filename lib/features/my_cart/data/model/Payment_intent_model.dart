@@ -1,51 +1,54 @@
 class PaymentIntentModel {
   PaymentIntentModel({
-      this.id, 
-      this.object, 
-      this.amount, 
-      this.amountCapturable, 
-      this.amountDetails, 
-      this.amountReceived, 
-      this.application, 
-      this.applicationFeeAmount, 
-      this.automaticPaymentMethods, 
-      this.canceledAt, 
-      this.cancellationReason, 
-      this.captureMethod, 
-      this.clientSecret, 
-      this.confirmationMethod, 
-      this.created, 
-      this.currency, 
-      this.customer, 
-      this.description, 
-      this.invoice, 
-      this.lastPaymentError, 
-      this.latestCharge, 
-      this.livemode, 
-      this.metadata, 
-      this.nextAction, 
-      this.onBehalfOf, 
-      this.paymentMethod, 
-      this.paymentMethodOptions, 
-      this.paymentMethodTypes, 
-      this.processing, 
-      this.receiptEmail, 
-      this.redaction, 
-      this.review, 
-      this.setupFutureUsage, 
-      this.shipping, 
-      this.statementDescriptor, 
-      this.statementDescriptorSuffix, 
-      this.status, 
-      this.transferData, 
-      this.transferGroup,});
+    this.id,
+    this.object,
+    this.amount,
+    this.amountCapturable,
+    this.amountDetails,
+    this.amountReceived,
+    this.application,
+    this.applicationFeeAmount,
+    this.automaticPaymentMethods,
+    this.canceledAt,
+    this.cancellationReason,
+    this.captureMethod,
+    this.clientSecret,
+    this.confirmationMethod,
+    this.created,
+    this.currency,
+    this.customer,
+    this.description,
+    this.invoice,
+    this.lastPaymentError,
+    this.latestCharge,
+    this.livemode,
+    this.metadata,
+    this.nextAction,
+    this.onBehalfOf,
+    this.paymentMethod,
+    this.paymentMethodOptions,
+    this.paymentMethodTypes,
+    this.processing,
+    this.receiptEmail,
+    this.redaction,
+    this.review,
+    this.setupFutureUsage,
+    this.shipping,
+    this.statementDescriptor,
+    this.statementDescriptorSuffix,
+    this.status,
+    this.transferData,
+    this.transferGroup,
+  });
 
   PaymentIntentModel.fromJson(dynamic json) {
     id = json['id'];
     object = json['object'];
     amount = json['amount'];
     amountCapturable = json['amount_capturable'];
-    amountDetails = json['amount_details'] != null ? AmountDetails.fromJson(json['amount_details']) : null;
+    amountDetails = json['amount_details'] != null
+        ? AmountDetails.fromJson(json['amount_details'])
+        : null;
     amountReceived = json['amount_received'];
     application = json['application'];
     applicationFeeAmount = json['application_fee_amount'];
@@ -67,8 +70,12 @@ class PaymentIntentModel {
     nextAction = json['next_action'];
     onBehalfOf = json['on_behalf_of'];
     paymentMethod = json['payment_method'];
-    paymentMethodOptions = json['payment_method_options'] != null ? PaymentMethodOptions.fromJson(json['payment_method_options']) : null;
-    paymentMethodTypes = json['payment_method_types'] != null ? json['payment_method_types'].cast<String>() : [];
+    paymentMethodOptions = json['payment_method_options'] != null
+        ? PaymentMethodOptions.fromJson(json['payment_method_options'])
+        : null;
+    paymentMethodTypes = json['payment_method_types'] != null
+        ? json['payment_method_types'].cast<String>()
+        : [];
     processing = json['processing'];
     receiptEmail = json['receipt_email'];
     redaction = json['redaction'];
@@ -168,15 +175,17 @@ class PaymentIntentModel {
     map['transfer_group'] = transferGroup;
     return map;
   }
-
 }
 
 class PaymentMethodOptions {
   PaymentMethodOptions({
-      this.acssDebit,});
+    this.acssDebit,
+  });
 
   PaymentMethodOptions.fromJson(dynamic json) {
-    acssDebit = json['acss_debit'] != null ? AcssDebit.fromJson(json['acss_debit']) : null;
+    acssDebit = json['acss_debit'] != null
+        ? AcssDebit.fromJson(json['acss_debit'])
+        : null;
   }
   AcssDebit? acssDebit;
 
@@ -187,16 +196,18 @@ class PaymentMethodOptions {
     }
     return map;
   }
-
 }
 
 class AcssDebit {
   AcssDebit({
-      this.mandateOptions, 
-      this.verificationMethod,});
+    this.mandateOptions,
+    this.verificationMethod,
+  });
 
   AcssDebit.fromJson(dynamic json) {
-    mandateOptions = json['mandate_options'] != null ? MandateOptions.fromJson(json['mandate_options']) : null;
+    mandateOptions = json['mandate_options'] != null
+        ? MandateOptions.fromJson(json['mandate_options'])
+        : null;
     verificationMethod = json['verification_method'];
   }
   MandateOptions? mandateOptions;
@@ -210,14 +221,14 @@ class AcssDebit {
     map['verification_method'] = verificationMethod;
     return map;
   }
-
 }
 
 class MandateOptions {
   MandateOptions({
-      this.intervalDescription, 
-      this.paymentSchedule, 
-      this.transactionType,});
+    this.intervalDescription,
+    this.paymentSchedule,
+    this.transactionType,
+  });
 
   MandateOptions.fromJson(dynamic json) {
     intervalDescription = json['interval_description'];
@@ -235,12 +246,12 @@ class MandateOptions {
     map['transaction_type'] = transactionType;
     return map;
   }
-
 }
 
 class AmountDetails {
   AmountDetails({
-      this.tip,});
+    this.tip,
+  });
 
   AmountDetails.fromJson(dynamic json) {
     tip = json['tip'];
@@ -252,5 +263,4 @@ class AmountDetails {
     map['tip'] = tip;
     return map;
   }
-
 }

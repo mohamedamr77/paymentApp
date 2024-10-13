@@ -33,26 +33,35 @@ class PaymentMethodBottomSheetBody extends StatelessWidget {
           0.06.ph,
           BlocConsumer<StripePaymentCubit, StripePaymentState>(
             builder: (context, state) {
-              return
-                state is StripePaymentLoadingState ? const Center(
-                  child: CircularProgressIndicator(),) :
-
-                CustomElevatedButton(
-                    onPress: () {
-                      BlocProvider.of<StripePaymentCubit>(context).makeStripePayment(paymentIntentInputModel: PaymentIntentInputModel(
-                          amount: '100', currency: 'USD', customerId: 'cus_R1HkyfT0NebIzz'));
-                    },
-                    btnColor: AppColor.greenColor,
-                    child: GText(content: AppText.kPay, fontSize: 0.05.w));
-            }, listener: (BuildContext context, StripePaymentState state) {
+              return state is StripePaymentLoadingState
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : CustomElevatedButton(
+                      onPress: () {
+                        BlocProvider.of<StripePaymentCubit>(context)
+                            .makeStripePayment(
+                                paymentIntentInputModel:
+                                    PaymentIntentInputModel(
+                                        amount: '100',
+                                        currency: 'USD',
+                                        customerId: 'cus_R1HkyfT0NebIzz'));
+                      },
+                      btnColor: AppColor.greenColor,
+                      child: GText(content: AppText.kPay, fontSize: 0.05.w));
+            },
+            listener: (BuildContext context, StripePaymentState state) {
               if (state is StripePaymentSuccessState) {
                 Navigator.of(context).pop();
               }
               if (state is StripePaymentFaliureState) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage,style: const TextStyle(color: Colors.white),)));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(
+                  state.errorMessage,
+                  style: const TextStyle(color: Colors.white),
+                )));
               }
-
-          },
+            },
           ),
           0.04.ph,
         ],

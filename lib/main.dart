@@ -8,7 +8,7 @@ import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 
 void main() {
-   Stripe.publishableKey =ApiKeys.publishablekey;
+  Stripe.publishableKey = ApiKeys.publishablekey;
   runApp(const MyApp());
 }
 
@@ -42,4 +42,3 @@ class MyApp extends StatelessWidget {
 // Create an Ephemeral Key (stripeVersion , customerId)
 // 3. init payment sheet (merchantDisplayName,EphemeralKeySecret,  paymentIntentClientSecret)
 // 4. present paymentSheet ()
-

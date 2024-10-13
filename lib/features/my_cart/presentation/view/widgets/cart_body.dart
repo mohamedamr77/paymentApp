@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paymentapp/core/constant/color_app.dart';
 import 'package:paymentapp/core/constant/text_app.dart';
 import 'package:paymentapp/core/extentions/screen_size.dart';
-import 'package:paymentapp/core/navigation/navigation_manager.dart';
 import 'package:paymentapp/core/utils/shared_widget/custom_elevated_btn.dart';
 import 'package:paymentapp/core/utils/shared_widget/global_text.dart';
-import 'package:paymentapp/features/my_cart/data/repo/checkout_repo_implement.dart';
-import 'package:paymentapp/features/my_cart/presentation/view/payment_details_screen.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_method_bottom_sheet.dart';
-import 'package:paymentapp/features/my_cart/presentation/view/widgets/payment_method_list_view.dart';
-import 'package:paymentapp/features/my_cart/presentation/view_model/stripe_payment/stripe_payment_cubit.dart';
 import 'basket_items.dart';
 import '../../../../../core/utils/shared_widget/custom_abb_bar.dart';
 import '../../../../../core/utils/shared_widget/custom_text_with_price.dart';
@@ -61,13 +55,14 @@ class CartBody extends StatelessWidget {
               onPress: () {
                 showModalBottomSheet(
                   backgroundColor: AppColor.whiteColor,
-                  context: context, builder: (context) {
-                  return const PaymentMethodBottomSheetBody();
-                },);
+                  context: context,
+                  builder: (context) {
+                    return const PaymentMethodBottomSheetBody();
+                  },
+                );
               },
               btnColor: AppColor.greenColor,
-              child: GText(
-                  content: AppText.kCompletePayment, fontSize: 0.05.w))
+              child: GText(content: AppText.kCompletePayment, fontSize: 0.05.w))
         ],
       ),
     );
