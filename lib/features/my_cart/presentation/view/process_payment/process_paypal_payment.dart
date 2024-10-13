@@ -3,7 +3,9 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:paymentapp/core/navigation/navigation_manager.dart';
 import 'package:paymentapp/core/utils/api_keys.dart';
+import 'package:paymentapp/features/my_cart/presentation/view/thank_you_screen.dart';
 
 import '../../../data/model/paypal/amount_transactions_model.dart';
 import '../../../data/model/paypal/item_list_model.dart';
@@ -41,7 +43,7 @@ void processPaypalPayment(BuildContext context) {
       note: "Contact us for any questions on your order.",
       onSuccess: (Map params) async {
         log("onSuccess: $params");
-        Navigator.pop(context);
+        NavigationManager.replace(ThankYouScreen.id);
       },
       onError: (error) {
         log("onError: $error");
@@ -56,7 +58,6 @@ void processPaypalPayment(BuildContext context) {
     ),
   ));
 }
-
 
 /*
  the above code after refecator code

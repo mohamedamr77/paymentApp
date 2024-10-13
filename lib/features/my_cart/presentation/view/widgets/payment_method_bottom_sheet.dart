@@ -12,8 +12,7 @@ class PaymentMethodBottomSheetBody extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _buildDivider(),
-        const SizedBox(
-            height: 10),
+        const SizedBox(height: 10),
         const PaymentMethodListView(),
         const SizedBox(height: 10),
         const PaymentButtonBottomSheet(),

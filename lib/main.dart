@@ -13,9 +13,7 @@ import 'features/my_cart/presentation/view_model/payment_method/payment_method_c
 void main() {
   Stripe.publishableKey = ApiKeys.publishablekey;
   runApp(BlocProvider(
-    create: (context) => PaymentMethodCubit(
-      CheckOutRepoImplement()
-    ),
+    create: (context) => PaymentMethodCubit(CheckOutRepoImplement()),
     child: const MyApp(),
   ));
 }
