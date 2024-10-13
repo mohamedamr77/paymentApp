@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/core/utils/api_keys.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/cart_screen.dart';
@@ -6,10 +7,14 @@ import 'package:paymentapp/features/my_cart/presentation/view/cart_screen.dart';
 import 'core/constant/const_variables.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
+import 'features/my_cart/presentation/view_model/payment_method/payment_method_cubit.dart';
 
 void main() {
   Stripe.publishableKey = ApiKeys.publishablekey;
-  runApp(const MyApp());
+  runApp(BlocProvider(
+    create: (context) => PaymentMethodCubit(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
