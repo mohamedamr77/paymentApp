@@ -1,13 +1,16 @@
 class AmountTransactionsModel {
   AmountTransactionsModel({
-      this.total, 
-      this.currency, 
-      this.details,});
+    this.total,
+    this.currency,
+    this.details,
+  });
 
   AmountTransactionsModel.fromJson(dynamic json) {
     total = json['total'];
     currency = json['currency'];
-    details = json['details'] != null ? DetailsAmountTransactionsModel.fromJson(json['details']) : null;
+    details = json['details'] != null
+        ? DetailsAmountTransactionsModel.fromJson(json['details'])
+        : null;
   }
   String? total;
   String? currency;
@@ -22,14 +25,14 @@ class AmountTransactionsModel {
     }
     return map;
   }
-
 }
 
 class DetailsAmountTransactionsModel {
   DetailsAmountTransactionsModel({
-      this.subtotal, 
-      this.shipping, 
-      this.shippingDiscount,});
+    this.subtotal,
+    this.shipping,
+    this.shippingDiscount,
+  });
 
   DetailsAmountTransactionsModel.fromJson(dynamic json) {
     subtotal = json['subtotal'];
@@ -47,8 +50,4 @@ class DetailsAmountTransactionsModel {
     map['shipping_discount'] = shippingDiscount;
     return map;
   }
-
 }
-
-
-

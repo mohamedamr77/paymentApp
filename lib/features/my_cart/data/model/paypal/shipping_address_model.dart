@@ -50,4 +50,3 @@ class ShippingAddress {
     return 'ShippingAddress(recipientName: $recipientName, line1: $line1, city: $city, countryCode: $countryCode, postalCode: $postalCode, phone: $phone, state: $state)';
   }
 }
-

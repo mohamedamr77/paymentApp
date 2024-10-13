@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/core/utils/api_keys.dart';
+import 'package:paymentapp/features/my_cart/data/repo/checkout_repo_implement.dart';
 import 'package:paymentapp/features/my_cart/presentation/view/cart_screen.dart';
 
 import 'core/constant/const_variables.dart';
@@ -12,8 +13,10 @@ import 'features/my_cart/presentation/view_model/payment_method/payment_method_c
 void main() {
   Stripe.publishableKey = ApiKeys.publishablekey;
   runApp(BlocProvider(
-    create: (context) => PaymentMethodCubit(),
-    child: MyApp(),
+    create: (context) => PaymentMethodCubit(
+      CheckOutRepoImplement()
+    ),
+    child: const MyApp(),
   ));
 }
 

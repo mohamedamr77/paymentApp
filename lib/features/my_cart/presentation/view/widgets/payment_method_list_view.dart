@@ -26,15 +26,16 @@ class PaymentMethodListView extends StatelessWidget {
                       padding: index == 0
                           ? const EdgeInsets.only(left: 10)
                           : index == paymentMethodList.length - 1
-                          ? const EdgeInsets.only(right: 10)
-                          : EdgeInsets.zero,
+                              ? const EdgeInsets.only(right: 10)
+                              : EdgeInsets.zero,
                       child: InkWell(
                         onTap: () {
-                          BlocProvider.of<PaymentMethodCubit>(context).paymentMethodSelected(index: index);
+                          BlocProvider.of<PaymentMethodCubit>(context)
+                              .paymentMethodSelected(index: index);
                         },
                         child: PaymentItem(
-                          isActive:  BlocProvider.of<PaymentMethodCubit>(context)
-                              .paymentMethodSelect ==
+                          isActive: BlocProvider.of<PaymentMethodCubit>(context)
+                                  .paymentMethodSelect ==
                               index,
                           image: paymentMethodList[index].image,
                         ),

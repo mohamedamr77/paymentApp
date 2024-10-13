@@ -1,12 +1,13 @@
 class EphemeralKeyModel {
   EphemeralKeyModel({
-      this.id, 
-      this.object, 
-      this.associatedObjects, 
-      this.created, 
-      this.expires, 
-      this.livemode, 
-      this.secret,});
+    this.id,
+    this.object,
+    this.associatedObjects,
+    this.created,
+    this.expires,
+    this.livemode,
+    this.secret,
+  });
 
   EphemeralKeyModel.fromJson(dynamic json) {
     id = json['id'];
@@ -35,7 +36,8 @@ class EphemeralKeyModel {
     map['id'] = id;
     map['object'] = object;
     if (associatedObjects != null) {
-      map['associated_objects'] = associatedObjects?.map((v) => v.toJson()).toList();
+      map['associated_objects'] =
+          associatedObjects?.map((v) => v.toJson()).toList();
     }
     map['created'] = created;
     map['expires'] = expires;
@@ -43,13 +45,13 @@ class EphemeralKeyModel {
     map['secret'] = secret;
     return map;
   }
-
 }
 
 class AssociatedObjects {
   AssociatedObjects({
-      this.id, 
-      this.type,});
+    this.id,
+    this.type,
+  });
 
   AssociatedObjects.fromJson(dynamic json) {
     id = json['id'];
@@ -64,5 +66,4 @@ class AssociatedObjects {
     map['type'] = type;
     return map;
   }
-
 }

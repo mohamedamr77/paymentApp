@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:paymentapp/features/my_cart/data/model/paypal/shipping_address_model.dart';
 
 class ItemListModel {
@@ -8,12 +6,13 @@ class ItemListModel {
 
   ItemListModel({
     required this.items,
-     this.shippingAddress,
+    this.shippingAddress,
   });
 
   factory ItemListModel.fromJson(Map<String, dynamic> json) {
     var itemList = json['items'] as List;
-    List<OrderItemModel> itemObjects = itemList.map((itemJson) => OrderItemModel.fromJson(itemJson)).toList();
+    List<OrderItemModel> itemObjects =
+        itemList.map((itemJson) => OrderItemModel.fromJson(itemJson)).toList();
 
     return ItemListModel(
       items: itemObjects,
@@ -70,8 +69,3 @@ class OrderItemModel {
     return 'Item(name: $name, quantity: $quantity, price: $price, currency: $currency)';
   }
 }
-
-
-
-
-
