@@ -40,9 +40,7 @@ class PaymentMethodBottomSheetBody extends StatelessWidget {
                 CustomElevatedButton(
                     onPress: () {
                       BlocProvider.of<StripePaymentCubit>(context).makeStripePayment(paymentIntentInputModel: PaymentIntentInputModel(
-                          amount: '100', currency: 'USD'
-
-                      ));
+                          amount: '100', currency: 'USD', customerId: 'cus_R1HkyfT0NebIzz'));
                     },
                     btnColor: AppColor.greenColor,
                     child: GText(content: AppText.kPay, fontSize: 0.05.w));
@@ -51,7 +49,7 @@ class PaymentMethodBottomSheetBody extends StatelessWidget {
                 Navigator.of(context).pop();
               }
               if (state is StripePaymentFaliureState) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage,style: TextStyle(color: Colors.white),)));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage,style: const TextStyle(color: Colors.white),)));
               }
 
           },
