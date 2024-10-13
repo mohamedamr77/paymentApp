@@ -13,7 +13,7 @@ class PaymentMethodBottomSheetBody extends StatelessWidget {
       children: [
         _buildDivider(),
         const SizedBox(
-            height: 10), // Same as 0.06.ph if it's equal to a fixed height
+            height: 10),
         const PaymentMethodListView(),
         const SizedBox(height: 10),
         const PaymentButtonBottomSheet(),
